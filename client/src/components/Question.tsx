@@ -18,9 +18,10 @@ export type QuestionProps = {
   id: number;
   content: string;
   question_type: string;
+  handleNext?: () => any;
 };
 
-const Question = ({ id, content, question_type }: QuestionProps) => {
+const Question = ({ id, content, question_type, handleNext }: QuestionProps) => {
   const [rating, setRating] = useState(0);
   const [answer, setAnswer] = useState('');
   const [feedback, setFeedBack] = useState('');
@@ -77,7 +78,7 @@ const Question = ({ id, content, question_type }: QuestionProps) => {
         {answer === 'no' ? (
           <Input
             placeholder='Please elaborate'
-            onChange={(e) => setFeedBack(e.target.value)}
+            onChange={(e) => setFeedBack('No, ' + e.target.value)}
             fullWidth
           />
         ) : null}
@@ -99,10 +100,8 @@ const Question = ({ id, content, question_type }: QuestionProps) => {
 
   return (
     <QuestionContainer>
-      <Card sx={{ padding: '24px' }}>
-        <Typography data-cy={`question${id}`}>
-          {id}. {parseContent(content, patientInfo)}
-        </Typography>
+      <Card sx={{ padding: '24px', width: '-webkit-fill-available' }}>
+        <Typography data-cy={`question${id}`}>{parseContent(content, patientInfo)}</Typography>
         {response}
       </Card>
     </QuestionContainer>

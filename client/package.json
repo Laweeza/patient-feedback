@@ -49,6 +49,7 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^9.5.2"
+    "cypress": "^9.5.2",
+    "react-transition-group": "^4.4.2"
   }
 }

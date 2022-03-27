@@ -4,7 +4,8 @@ import { Button, Typography } from '@mui/material';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useRecoilState, useSetRecoilState } from 'recoil';
-import Question, { QuestionProps } from './components/Question';
+import { QuestionProps } from './components/Question';
+import QuestionList from './components/QuestionList';
 import Summary from './components/Summary';
 import { patientInfoState, responseState } from './store/atoms';
 
@@ -81,19 +82,7 @@ const App: React.FC = () => {
           <Typography variant='h5' data-cy='feedbackHeading'>
             How was your appointment?
           </Typography>
-          <QuestionsContainer>
-            {questions.map((question, i) => (
-              <Question key={question.id} {...question} />
-            ))}
-          </QuestionsContainer>
-          <Button
-            data-cy='submitFeedback'
-            onClick={handleSubmit}
-            color='primary'
-            variant='contained'
-          >
-            Submit
-          </Button>
+          <QuestionList questions={questions} handleSubmit={handleSubmit} />
         </>
       )}
     </AppContainer>
@@ -109,11 +98,4 @@ const AppContainer = styled.div({
   justifyContent: 'center',
   alignItems: 'center',
   backgroundColor: '#f2f2f4',
-});
-
-const QuestionsContainer = styled.div({
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '25px',
-  padding: '16px',
 });
