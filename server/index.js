@@ -2,10 +2,12 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const db = require('./db');
-const data = require('./data.json');
+const patientData = require('./data.json');
+const cors = require('cors');
 
+app.use(cors());
 app.use(express.json());
-// app.use(express.static('../client/'))
+// app.use(express.static('../client/'));
 
 app.get('/', async (req, res) => {
   // await db.Patient.create({
@@ -14,12 +16,12 @@ app.get('/', async (req, res) => {
   // await db.Question.bulkCreate([
   //   {
   //     content:
-  //       'Hi [Patient], on a scale of 1-10, would you recommend Dr [Doctor] to a friend or family member? 1 = Would not recommend, 10 = Would strongly recommend',
+  //       'Hi [Patient], on a scale of 1-10, would you recommend Dr. [Doctor] to a friend or family member? 1 = Would not recommend, 10 = Would strongly recommend',
   //     question_type: 'rating',
   //   },
   //   {
   //     content:
-  //       'Thank you. You were diagnosed with [Diagnosis]. Did Dr [Doctor Last Name] explain how to manage this diagnosis in a way you could understand?',
+  //       'Thank you. You were diagnosed with [Diagnosis]. Did Dr. [Doctor] explain how to manage this diagnosis in a way you could understand?',
   //     question_type: 'boolean',
   //   },
   //   {
@@ -32,28 +34,34 @@ app.get('/', async (req, res) => {
 
 // Returns static JSON data
 app.get('/profile', (req, res) => {
-  res.send(data);
+  res.status(200).send(patientData);
 });
 
 // Returns survey questions
 app.get('/questions', async (req, res) => {
   try {
     const questions = await db.Question.findAll();
-    res.send(questions);
+    res.status(200).send(questions);
   } catch (err) {
-    res.send(err);
+    res.status(500).send(err);
   }
 });
 
-// Submit question responses
+// Submit question responses, and responds with patient's feedback as well as associated questions
 app.post('/submit', async (req, res) => {
   const body = req.body;
+  const patient_id = body[0].patient_id;
 
   try {
-    const data = await db.Response.bulkCreate(body);
-    res.send(data);
+    await db.Response.bulkCreate(body);
+    const responses = await db.Response.findAll({
+      where: { patient_id },
+      include: { model: db.Question, as: 'question' },
+    });
+    res.status(200).send(responses);
   } catch (err) {
-    res.send(err);
+    console.log(err);
+    res.status(500).send(err);
   }
 });
 
@@ -66,9 +74,9 @@ app.get('/responses', async (req, res) => {
         patient_id,
       },
     });
-    res.send(data);
+    res.status(200).send(data);
   } catch (err) {
-    res.send(err);
+    res.status(500).send(err);
   }
 });
 
