@@ -1,0 +1,44 @@
+services:
+  db:
+    image: mysql
+    restart: always
+    env_file:
+      - ./server/db/docker.env
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - ./server/db/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+      # - $HOME/patient-feedback-db:/config
+    healthcheck:
+      test: ['CMD-SHELL', 'mysqladmin ping']
+      interval: 10s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  web:
+    build: ./server
+    restart: always
+    environment:
+      - MYSQL_HOST=db
+    ports:
+      - '3001:3001'
+    expose:
+      - '3001'
+    depends_on:
+      db:
+        condition: service_healthy
+    links:
+      - db
+
+  client:
+    build: ./client
+    restart: always
+    environment:
+      - REACT_APP_BASE_URL=web:3001
+    ports:
+      - '3000:80'
+    links:
+      - web
