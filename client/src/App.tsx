@@ -1,9 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import styled from '@emotion/styled';
 import { Button, Typography } from '@mui/material';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import Question, { QuestionProps } from './components/Question';
+import Summary from './components/Summary';
 import { patientInfoState, responseState } from './store/atoms';
 
 const App: React.FC = () => {
@@ -21,8 +23,6 @@ const App: React.FC = () => {
     try {
       const { data } = await axios.get(`${process.env.REACT_APP_BASE_URL}/profile`);
       const { resource: patient } = data.entry.find((e) => e.resource.resourceType === 'Patient');
-      console.log(patient);
-
       const { resource: doctor } = data.entry.find((e) => e.resource.resourceType === 'Doctor');
 
       const { resource: diagnosis } = data.entry.find(
@@ -60,8 +60,12 @@ const App: React.FC = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/submit`, responses);
-      console.log(response.data);
+      const { data: responseData } = await axios.post(
+        `${process.env.REACT_APP_BASE_URL}/submit`,
+        responses,
+      );
+
+      setResponses(responseData);
       setIsSubmitted(true);
     } catch (err) {
       console.error(err);
@@ -71,16 +75,23 @@ const App: React.FC = () => {
   return (
     <AppContainer>
       {isSubmitted ? (
-        <Typography variant='h4'>Thank you for your response.</Typography>
+        <Summary />
       ) : (
         <>
-          <Typography variant='h5'>How was your appointment?</Typography>
+          <Typography variant='h5' data-cy='feedbackHeading'>
+            How was your appointment?
+          </Typography>
           <QuestionsContainer>
             {questions.map((question, i) => (
               <Question key={question.id} {...question} />
             ))}
           </QuestionsContainer>
-          <Button onClick={handleSubmit} color='primary' variant='contained'>
+          <Button
+            data-cy='submitFeedback'
+            onClick={handleSubmit}
+            color='primary'
+            variant='contained'
+          >
             Submit
           </Button>
         </>

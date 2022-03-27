@@ -9,10 +9,10 @@ import {
   Input,
   Radio,
   RadioGroup,
-  TextareaAutosize,
   TextField,
   Typography,
 } from '@mui/material';
+import { parseContent } from '../utils';
 
 export type QuestionProps = {
   id: number;
@@ -33,7 +33,7 @@ const Question = ({ id, content, question_type }: QuestionProps) => {
       {
         patient_id: 1,
         question_id: id,
-        content: answer || feedback,
+        content: feedback || answer,
         rating,
       },
     ];
@@ -43,14 +43,15 @@ const Question = ({ id, content, question_type }: QuestionProps) => {
   let response: any = null;
 
   if (question_type === 'rating') {
-    response = Array.from(Array(10)).map((_, i) => (
-      <>
-        <RadioGroup
-          value={rating}
-          onChange={(e) => setRating(Number(e.target.value))}
-          style={radioStyles}
-          row
-        >
+    response = (
+      <RadioGroup
+        value={rating}
+        onChange={(e) => setRating(Number(e.target.value))}
+        style={radioStyles}
+        row
+        data-cy={`questionRating${id}`}
+      >
+        {Array.from(Array(10)).map((_, i) => (
           <FormControlLabel
             key={i}
             value={i + 1}
@@ -58,20 +59,25 @@ const Question = ({ id, content, question_type }: QuestionProps) => {
             label={i + 1}
             labelPlacement='bottom'
           />
-        </RadioGroup>
-      </>
-    ));
+        ))}
+      </RadioGroup>
+    );
   } else if (question_type === 'boolean') {
     response = (
       <>
-        <RadioGroup value={answer} onChange={(e) => setAnswer(e.target.value)} style={radioStyles}>
+        <RadioGroup
+          data-cy={`questionAnswer${id}`}
+          value={answer}
+          onChange={(e) => setAnswer(e.target.value)}
+          style={radioStyles}
+        >
           <FormControlLabel value='yes' control={<Radio />} label='Yes' labelPlacement='bottom' />
           <FormControlLabel value='no' control={<Radio />} label='No' labelPlacement='bottom' />
         </RadioGroup>
         {answer === 'no' ? (
           <Input
             placeholder='Please elaborate'
-            onChange={(e) => setAnswer(e.target.value)}
+            onChange={(e) => setFeedBack(e.target.value)}
             fullWidth
           />
         ) : null}
@@ -81,6 +87,7 @@ const Question = ({ id, content, question_type }: QuestionProps) => {
     response = (
       <TextField
         placeholder='Input feedback here'
+        data-cy={`questionFeedback${id}`}
         multiline
         fullWidth
         rows={2}
@@ -93,7 +100,7 @@ const Question = ({ id, content, question_type }: QuestionProps) => {
   return (
     <QuestionContainer>
       <Card sx={{ padding: '24px' }}>
-        <Typography>
+        <Typography data-cy={`question${id}`}>
           {id}. {parseContent(content, patientInfo)}
         </Typography>
         {response}
@@ -117,11 +124,3 @@ const radioStyles = {
   alignItems: 'center',
   justifyContent: 'center',
 } as React.CSSProperties;
-
-const parseContent = (content: string, patientInfo: any) => {
-  let modifiedContent = content.replace(/\[Patient\]/g, patientInfo.name);
-  modifiedContent = modifiedContent.replace(/\[Doctor\]/g, patientInfo.doctor);
-  modifiedContent = modifiedContent.replace(/\[Diagnosis\]/g, patientInfo.diagnosis);
-
-  return modifiedContent;
-};

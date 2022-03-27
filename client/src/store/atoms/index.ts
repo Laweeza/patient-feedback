@@ -1,10 +1,12 @@
 import { atom } from 'recoil';
+import { QuestionProps } from '../../components/Question';
 
 export type QuestionResponse = {
   question_id: number;
   patient_id: number;
   content?: string;
   rating?: number;
+  question?: QuestionProps;
 };
 
 export const responseState = atom<QuestionResponse[]>({
