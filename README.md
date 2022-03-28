@@ -30,15 +30,24 @@ npm run cypress:run
 
 ## Technologies
 
+1. Front End Libraries
+
 - React
 - Axios
 - Material UI
 - Emotion (Styled Components)
 
+2. Testing
+
 - Jest
 - Cypress.io
+
+3. Back End Tools
 
 - MySQL
 - Sequelize
 - Express
+
+4. Deployment
+
 - Docker
