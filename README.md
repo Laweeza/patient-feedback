@@ -4,7 +4,9 @@ The purpose of this program is to collect patient feedback after their doctor ap
 
 [Installation](#installation) •
 [Getting Started](#getting-started) •
-[Technologies](#technologies)
+[Technologies](#technologies) •
+[System Architecture](#system-architecture) •
+[Technical Decisions & Challenges](#technical-decisions)
 
 ## Installation
 
@@ -35,6 +37,12 @@ To run integration tests, please run:
 ```
 npm run cypress:run
 ```
+
+## System Architecture
+
+## Technical Decisions
+
+- [Notion Entry](https://zesty-spur-a63.notion.site/Patient-Feedback-970e8904cf7645a3b313c75711f44893)
 
 ## Technologies
 
