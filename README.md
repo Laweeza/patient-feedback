@@ -30,10 +30,6 @@ docker-compose up
 |     GET      | /responses | Returns patient responses to questions            |  200   |
 |     POST     | /submit    | Submits patient feedback and associated questions |  201   |
 
-## Technical Decisions
-
-- [Notion Entry](https://zesty-spur-a63.notion.site/Patient-Feedback-970e8904cf7645a3b313c75711f44893)
-
 ## Technologies
 
 | Front End                        | Testing                          | Back End                            | Deployment                |
