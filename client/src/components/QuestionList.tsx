@@ -45,7 +45,7 @@ const QuestionList = ({ questions, handleSubmit }: Props) => {
         {/* </SwitchTransition> */}
       </QuestionsContainer>
       {position < questions.length - 1 ? (
-        <Button variant='outlined' onClick={handleNext}>
+        <Button variant='outlined' data-cy='nextQuestion' onClick={handleNext}>
           Next
         </Button>
       ) : (
