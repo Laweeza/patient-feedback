@@ -17,8 +17,17 @@ docker-compose up
 ```
 
 ## System Architecture
+
 ![Architecture Diagram](https://user-images.githubusercontent.com/56424589/160459605-6b9653ee-b5a3-4fdb-abaa-e7dd6aa46e64.png)
 
+## API Methods
+
+| Request Type | Endpoint   | What it does                                      | Status |
+| :----------: | ---------- | ------------------------------------------------- | :----: |
+|     GET      | /profile   | Returns static JSON data                          |  200   |
+|     GET      | /questions | Returns the questions                             |  200   |
+|     GET      | /responses | Returns patient responses to questions            |  200   |
+|     POST     | /submit    | Submits patient feedback and associated questions |  201   |
 
 ## Technical Decisions
 
