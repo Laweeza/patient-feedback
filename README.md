@@ -17,6 +17,8 @@ docker-compose up
 ```
 
 ## System Architecture
+![Architecture Diagram](https://user-images.githubusercontent.com/56424589/160459605-6b9653ee-b5a3-4fdb-abaa-e7dd6aa46e64.png)
+
 
 ## Technical Decisions
 
