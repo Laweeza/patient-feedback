@@ -5,12 +5,11 @@ The purpose of this program is to collect patient feedback after their doctor ap
 [Installation](#installation) •
 [Getting Started](#getting-started) •
 [System Architecture](#system-architecture) •
-[Technical Decisions & Challenges](#technical-decisions) •
 [Technologies](#technologies)
 
 ## Getting Started
 
-See `/server` README for instructions for web service.
+See [/server](https://github.com/Laweeza/patient-feedback/tree/main/server) README for instructions for web service.
 To start up the application, please run:
 
 ```
