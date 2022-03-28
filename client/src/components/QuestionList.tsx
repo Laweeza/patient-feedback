@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Button, Typography } from '@mui/material';
 import { useState } from 'react';
-import { SwitchTransition, CSSTransition } from 'react-transition-group';
+import { CSSTransition } from 'react-transition-group';
 import Question, { QuestionProps } from './Question';
 import './styles.css';
 
