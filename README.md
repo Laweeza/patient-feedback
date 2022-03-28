@@ -30,24 +30,9 @@ npm run cypress:run
 
 ## Technologies
 
-| Front End                        |
-| -------------------------------- |
-| [React](https://reactjs.org/)    |
-| [Axios](https://axios-http.com/) |
-| [MUI](https://mui.com/)          |
-| [Emotion](https://emotion.sh)    |
-
-| Testing                          |
-| -------------------------------- |
-| [Jest](https://jestjs.io/)       |
-| [Cypress](https://go.cypress.io) |
-
-3. Back End Tools
-
-- MySQL
-- Sequelize
-- Express
-
-4. Deployment
-
-- Docker
+| Front End                        | Testing                          | Back End                            | Deployment                |
+| -------------------------------- | -------------------------------- | ----------------------------------- | ------------------------- |
+| [React](https://reactjs.org/)    | [Jest](https://jestjs.io/)       | [MySQL](https://www.mysql.com/)     | [Docker](www.docker.com/) |
+| [Axios](https://axios-http.com/) | [Cypress](https://go.cypress.io) | [Sequelize](https://sequelize.org/) |                           |
+| [MUI](https://mui.com/)          |                                  | [Express](https://expressjs.com/)   |                           |
+| [Emotion](https://emotion.sh)    |                                  |                                     |                           |
