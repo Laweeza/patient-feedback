@@ -46,12 +46,13 @@ const Question = ({ id, content, question_type, handleNext }: QuestionProps) => 
 
   if (question_type === 'rating') {
     response = (
-      <Slider
+      <PrettoSlider
+        valueLabelDisplay='auto'
+        aria-label='pretto slider'
         data-cy={`questionRating${id}`}
         defaultValue={rating}
         min={1}
         max={10}
-        valueLabelDisplay='auto'
         marks={Array.from(Array(10)).map((_, i) => ({ label: i + 1, value: i + 1 }))}
         onChange={(e, value) => setRating(Number(value))}
       />
@@ -93,7 +94,7 @@ const Question = ({ id, content, question_type, handleNext }: QuestionProps) => 
 
   return (
     <QuestionContainer>
-      <Card sx={{ padding: '24px', width: '-webkit-fill-available' }}>
+      <Card sx={{ padding: '24px', width: '-webkit-fill-available', boxShadow: 2 }}>
         <Typography data-cy={`question${id}`}>{parseContent(content, patientInfo)}</Typography>
         {response}
       </Card>
@@ -116,3 +117,42 @@ const radioStyles = {
   alignItems: 'center',
   justifyContent: 'center',
 } as React.CSSProperties;
+
+const PrettoSlider = styled(Slider)({
+  color: '#00aced',
+  height: 8,
+  '& .MuiSlider-track': {
+    border: 'none',
+  },
+  '& .MuiSlider-thumb': {
+    height: 24,
+    width: 24,
+    backgroundColor: '#fff',
+    border: '2px solid currentColor',
+    '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
+      boxShadow: 'inherit',
+    },
+    '&:before': {
+      display: 'none',
+    },
+  },
+  '& .MuiSlider-valueLabel': {
+    lineHeight: 1.2,
+    fontSize: 14,
+    background: 'unset',
+    padding: 0,
+    width: 32,
+    height: 32,
+    borderRadius: '50% 50% 50% 0',
+    backgroundColor: '#00aced',
+    transformOrigin: 'bottom left',
+    transform: 'translate(50%, -100%) rotate(-45deg) scale(0)',
+    '&:before': { display: 'none' },
+    '&.MuiSlider-valueLabelOpen': {
+      transform: 'translate(50%, -100%) rotate(-45deg) scale(1)',
+    },
+    '& > *': {
+      transform: 'rotate(45deg)',
+    },
+  },
+});

@@ -1,5 +1,6 @@
+import { ThemeProvider } from '@emotion/react';
 import styled from '@emotion/styled';
-import { Button, Typography } from '@mui/material';
+import { Button, createTheme, Typography } from '@mui/material';
 import { useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import Question, { QuestionProps } from './Question';
@@ -9,6 +10,12 @@ type Props = {
   questions: QuestionProps[];
   handleSubmit: () => any;
 };
+
+declare module '@mui/material/styles' {
+  interface Palette {
+    palette: Palette['primary'];
+  }
+}
 
 const QuestionList = ({ questions, handleSubmit }: Props) => {
   const [position, setPosition] = useState(0);
@@ -41,9 +48,11 @@ const QuestionList = ({ questions, handleSubmit }: Props) => {
         </CSSTransition>
       </QuestionsContainer>
       {position < questions.length - 1 ? (
-        <Button variant='outlined' data-cy='nextQuestion' onClick={handleNext}>
-          Next
-        </Button>
+        <ThemeProvider theme={theme}>
+          <Button color='primary' variant='contained' data-cy='nextQuestion' onClick={handleNext}>
+            Next
+          </Button>
+        </ThemeProvider>
       ) : (
         <Button data-cy='submitFeedback' onClick={handleSubmit} color='primary' variant='contained'>
           Submit
@@ -60,4 +69,12 @@ const QuestionsContainer = styled.div({
   flexDirection: 'column',
   gap: '25px',
   padding: '16px',
+});
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#00aced',
+    },
+  },
 });
