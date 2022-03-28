@@ -1,5 +1,3 @@
-// import cy from 'cypress';
-
 describe('Patient feedback end to end.', () => {
   before(() => {
     cy.visit('http://localhost:3000');
@@ -13,7 +11,9 @@ describe('Patient feedback end to end.', () => {
   });
 
   it('should record patient responses for each question on submit.', () => {
-    cy.get('[data-cy="questionRating1"]').children().contains('5').click();
+    cy.get('input[type="range"]').should('have.attr', 'aria-valuenow', 5);
+    cy.get('[data-cy="questionRating1"]').type('{rightArrow}');
+    cy.get('[data-cy="questionRating1"] input').should('have.attr', 'aria-valuenow', 6);
     cy.get('[data-cy="nextQuestion"]').click();
 
     cy.get('[data-cy="question2"]').contains(

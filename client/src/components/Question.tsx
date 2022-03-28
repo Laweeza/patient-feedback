@@ -9,6 +9,7 @@ import {
   Input,
   Radio,
   RadioGroup,
+  Slider,
   TextField,
   Typography,
 } from '@mui/material';
@@ -22,7 +23,7 @@ export type QuestionProps = {
 };
 
 const Question = ({ id, content, question_type, handleNext }: QuestionProps) => {
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState(5);
   const [answer, setAnswer] = useState('');
   const [feedback, setFeedBack] = useState('');
   const patientInfo = useRecoilValue(patientInfoState);
@@ -45,23 +46,15 @@ const Question = ({ id, content, question_type, handleNext }: QuestionProps) => 
 
   if (question_type === 'rating') {
     response = (
-      <RadioGroup
-        value={rating}
-        onChange={(e) => setRating(Number(e.target.value))}
-        style={radioStyles}
-        row
+      <Slider
         data-cy={`questionRating${id}`}
-      >
-        {Array.from(Array(10)).map((_, i) => (
-          <FormControlLabel
-            key={i}
-            value={i + 1}
-            control={<Radio />}
-            label={i + 1}
-            labelPlacement='bottom'
-          />
-        ))}
-      </RadioGroup>
+        defaultValue={rating}
+        min={1}
+        max={10}
+        valueLabelDisplay='auto'
+        marks={Array.from(Array(10)).map((_, i) => ({ label: i + 1, value: i + 1 }))}
+        onChange={(e, value) => setRating(Number(value))}
+      />
     );
   } else if (question_type === 'boolean') {
     response = (

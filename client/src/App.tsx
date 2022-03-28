@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import styled from '@emotion/styled';
-import { Button, Typography } from '@mui/material';
+import { Box, CircularProgress, Slider, Typography } from '@mui/material';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useRecoilState, useSetRecoilState } from 'recoil';
@@ -14,6 +14,7 @@ const App: React.FC = () => {
   const setPatientInfo = useSetRecoilState(patientInfoState);
   const [responses, setResponses] = useRecoilState(responseState);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getPatientData();
@@ -54,6 +55,7 @@ const App: React.FC = () => {
         ...questionsData.map(({ id }) => ({ patient_id: 1, question_id: id })),
       ];
       setResponses(temp);
+      setLoading(false);
     } catch (err) {
       console.error(err);
     }
@@ -75,14 +77,20 @@ const App: React.FC = () => {
 
   return (
     <AppContainer>
-      {isSubmitted ? (
-        <Summary />
+      {loading ? (
+        <CircularProgress />
       ) : (
         <>
-          <Typography variant='h5' data-cy='feedbackHeading'>
-            How was your appointment?
-          </Typography>
-          <QuestionList questions={questions} handleSubmit={handleSubmit} />
+          {isSubmitted ? (
+            <Summary />
+          ) : (
+            <>
+              <Typography variant='h5' data-cy='feedbackHeading'>
+                How was your appointment?
+              </Typography>
+              <QuestionList questions={questions} handleSubmit={handleSubmit} />
+            </>
+          )}
         </>
       )}
     </AppContainer>
