@@ -37,10 +37,10 @@ npm run cypress:run
 | [MUI](https://mui.com/)          |
 | [Emotion](https://emotion.sh)    |
 
-2. Testing
-
-- Jest
-- Cypress.io
+| Testing                          |
+| -------------------------------- |
+| [Jest](https://jestjs.io/)       |
+| [Cypress](https://go.cypress.io) |
 
 3. Back End Tools
 
