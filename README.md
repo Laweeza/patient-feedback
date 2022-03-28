@@ -9,7 +9,7 @@ The purpose of this program is to collect patient feedback after their doctor ap
 
 ## Getting Started
 
-See [/server](https://github.com/Laweeza/patient-feedback/tree/main/server) README for instructions for web service.
+See `/server`[README](https://github.com/Laweeza/patient-feedback/tree/main/server) for instructions for web service.
 To start up the application, please run:
 
 ```
