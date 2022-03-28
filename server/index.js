@@ -34,7 +34,7 @@ app.post('/submit', async (req, res) => {
       where: { patient_id },
       include: { model: db.Question, as: 'question' },
     });
-    res.status(200).send(responses);
+    res.status(201).send(responses);
   } catch (err) {
     console.log(err);
     res.status(500).send(err);

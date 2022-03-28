@@ -10,6 +10,7 @@ The purpose of this program is to collect patient feedback after their doctor ap
 
 ## Getting Started
 
+See `/server` README for instructions for web service.
 To start up the application, please run:
 
 ```
