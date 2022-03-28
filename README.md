@@ -2,29 +2,33 @@
 
 The purpose of this program is to collect patient feedback after their doctor appointments.
 
-# Install
+[Installation](#installation) •
+[Getting Started](#getting-started) •
+[Technologies](#technologies) •
+
+## Installation
 
 ```
 npm install
 ```
 
-# Usage
+## Getting Started
 
 ```
 docker-compose up
 ```
 
-# Run tests
+## Run Tests
 
 ```
 npm run test
 ```
 
 ```
- npm run cypress:run
+npm run cypress:run
 ```
 
-# Technologies
+## Technologies
 
 - React
 - Axios
