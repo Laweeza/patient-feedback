@@ -30,12 +30,12 @@ npm run cypress:run
 
 ## Technologies
 
-1. Front End Libraries
-
-- React
-- Axios
-- Material UI
-- Emotion (Styled Components)
+| Front End                        |
+| -------------------------------- |
+| [React](https://reactjs.org/)    |
+| [Axios](https://axios-http.com/) |
+| [MUI](https://mui.com/)          |
+| [Emotion](https://emotion.sh)    |
 
 2. Testing
 
