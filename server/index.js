@@ -7,7 +7,6 @@ const cors = require('cors');
 
 app.use(cors());
 app.use(express.json());
-// app.use(express.static('../client/'));
 
 // Returns static JSON data
 app.get('/profile', (req, res) => {
@@ -42,7 +41,7 @@ app.post('/submit', async (req, res) => {
   }
 });
 
-// Returns question responses
+// Returns patient's responses to the questions
 app.get('/responses', async (req, res) => {
   const { patient_id } = req.query;
   try {

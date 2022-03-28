@@ -70,8 +70,8 @@ const Question = ({ id, content, question_type, handleNext }: QuestionProps) => 
         </RadioGroup>
         {answer === 'no' ? (
           <Input
-            placeholder='Please elaborate'
-            onChange={(e) => setFeedBack('No, ' + e.target.value)}
+            placeholder='What can we do to improve for the next appointment?'
+            onChange={(e) => setFeedBack('No. ' + e.target.value)}
             fullWidth
           />
         ) : null}

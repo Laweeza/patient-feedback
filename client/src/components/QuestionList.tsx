@@ -29,9 +29,6 @@ const QuestionList = ({ questions, handleSubmit }: Props) => {
         <Typography>
           Question {position + 1} of {questions.length}
         </Typography>
-        {/* {questions.map((question, i) => (
-        <Question key={question.id} {...question} handleNext={handleNext} />
-      ))} */}
         <CSSTransition
           in={transitionState}
           addEndListener={(node, done) => {
@@ -42,7 +39,6 @@ const QuestionList = ({ questions, handleSubmit }: Props) => {
         >
           <Question {...questions[position]} handleNext={handleNext} />
         </CSSTransition>
-        {/* </SwitchTransition> */}
       </QuestionsContainer>
       {position < questions.length - 1 ? (
         <Button variant='outlined' data-cy='nextQuestion' onClick={handleNext}>
