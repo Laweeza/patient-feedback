@@ -49,8 +49,9 @@ npm run cypress:run
 | Front End                        | Testing                          | Back End                            | Deployment                |
 | -------------------------------- | -------------------------------- | ----------------------------------- | ------------------------- |
 | [React](https://reactjs.org/)    | [Jest](https://jestjs.io/)       | [MySQL](https://www.mysql.com/)     | [Docker](www.docker.com/) |
-| [Axios](https://axios-http.com/) | [Cypress](https://go.cypress.io) | [Sequelize](https://sequelize.org/) |                           |
-| [MUI](https://mui.com/)          |                                  | [Express](https://expressjs.com/)   |                           |
+| [Recoil](https://recoiljs.org/)  | [Cypress](https://go.cypress.io) | [Sequelize](https://sequelize.org/) |                           |
+| [Axios](https://axios-http.com/) |                                  | [Express](https://expressjs.com/)   |                           |
+| [MUI](https://mui.com/)          |                                  |                                     |                           |
 | [Emotion](https://emotion.sh)    |                                  |                                     |                           |
 
-[Back to top](#)
+                                                                                                                          [Back to top](#)
