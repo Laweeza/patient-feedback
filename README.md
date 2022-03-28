@@ -4,9 +4,9 @@ The purpose of this program is to collect patient feedback after their doctor ap
 
 [Installation](#installation) •
 [Getting Started](#getting-started) •
-[Technologies](#technologies) •
 [System Architecture](#system-architecture) •
-[Technical Decisions & Challenges](#technical-decisions)
+[Technical Decisions & Challenges](#technical-decisions) •
+[Technologies](#technologies)
 
 ## Getting Started
 

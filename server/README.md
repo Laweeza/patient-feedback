@@ -18,7 +18,7 @@ npm start
 
 | Variable       | Value                 |
 | -------------- | --------------------- |
-| MYSQL_DATABASE | your db name here     |
+| MYSQL_DATABASE | your db name          |
 | MYSQL_HOST     | your db host          |
 | MYSQL_USER     | your db username      |
 | MYSQL_PASSWORD | your db user password |
