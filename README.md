@@ -8,34 +8,12 @@ The purpose of this program is to collect patient feedback after their doctor ap
 [System Architecture](#system-architecture) •
 [Technical Decisions & Challenges](#technical-decisions)
 
-## Installation
-
-To install depedencies, please run:
-
-```
-npm install
-```
-
 ## Getting Started
 
 To start up the application, please run:
 
 ```
 docker-compose up
-```
-
-## Run Tests
-
-To run unit tests, please run:
-
-```
-npm run test
-```
-
-To run integration tests, please run:
-
-```
-npm run cypress:run
 ```
 
 ## System Architecture
