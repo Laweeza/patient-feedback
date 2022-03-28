@@ -53,5 +53,3 @@ npm run cypress:run
 | [Axios](https://axios-http.com/) |                                  | [Express](https://expressjs.com/)   |                           |
 | [MUI](https://mui.com/)          |                                  |                                     |                           |
 | [Emotion](https://emotion.sh)    |                                  |                                     |                           |
-
-                                                                                                                          [Back to top](#)
