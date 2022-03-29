@@ -5,8 +5,9 @@ The purpose of this program is to collect patient feedback after their doctor ap
 [Getting Started](#getting-started) •
 [System Architecture](#system-architecture) •
 [Wireframes](#wireframes) •
-[Technologies](#technologies) •
-[Technical Challenges](#technical-challenges)
+[Technical Challenges](#technical-challenges) •
+[Technologies](#technologies) 
+
 
 ## For Local Development
 
@@ -36,8 +37,14 @@ docker-compose up
 
 ## Wireframes
 
-![Feedback Wireframe](https://user-images.githubusercontent.com/56424589/160701225-26430b1a-f35d-4250-bf1d-7b6b083d1dfc.png)
 [Figma Link](https://www.figma.com/file/Ut3mpv60IjkyeKnpqN0g9O/Feedback-Wireframe?node-id=0%3A1)
+
+![Feedback Layout 1](https://user-images.githubusercontent.com/56424589/160701501-064d7aa5-7c6e-4ea5-8634-40428d74e2c0.png)
+![Feedback Layout 2](https://user-images.githubusercontent.com/56424589/160701560-953df5f7-8e3b-4e29-b975-2e68407af569.png)
+![Feedback Layout 3](https://user-images.githubusercontent.com/56424589/160701628-89170afd-ba6e-43ca-9764-d1793eb42ae8.png)
+
+
+
 
 ## Technologies
 
