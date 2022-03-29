@@ -42,7 +42,12 @@ const QuestionList = ({ questions, handleSubmit }: Props) => {
   return (
     <>
       <QuestionsContainer>
-        <Typography alignSelf={'center'}>
+        <Typography
+          sx={{
+            color: '#a4a7a9',
+          }}
+          alignSelf={'center'}
+        >
           {position + 1} of {questions.length}
         </Typography>
         <CSSTransition

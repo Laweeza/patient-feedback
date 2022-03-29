@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Card, CardContent, Typography } from '@mui/material';
+import ThumbUpAltSharpIcon from '@mui/icons-material/ThumbUpAltSharp';
 import { useRecoilValue } from 'recoil';
 import { patientInfoState, responseState } from '../store/atoms';
 import { parseContent } from '../utils';
@@ -22,15 +23,20 @@ const Summary = () => {
               Thanks again! Here’s what we heard:
             </Typography>
           ) : (
-            <Typography
-              style={{ color: '#00aced' }}
-              fontWeight={300}
-              variant='h5'
-              data-cy='feedbackSummaryHeading'
-              sx={{ alignSelf: 'center' }}
-            >
-              We have already recorded your responses. Thank you!
-            </Typography>
+            <Card>
+              <Typography
+                style={{ color: '#00aced' }}
+                fontWeight={300}
+                variant='h6'
+                data-cy='feedbackSummaryHeading'
+                sx={{ alignSelf: 'center', padding: 5 }}
+              >
+                We have already recorded your responses. Thank you!
+                <div style={{ display: 'inline-block', paddingLeft: 10 }}>
+                  <ThumbUpAltSharpIcon />
+                </div>
+              </Typography>
+            </Card>
           )}
           {responses.map((response) => (
             <Card sx={{ minWidth: 275, padding: '20px' }} key={`${response.patient_id}`}>

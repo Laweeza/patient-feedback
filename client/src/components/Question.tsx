@@ -92,7 +92,12 @@ const Question = ({ id, content, question_type, handleNext, handlePrevious }: Qu
 
   return (
     <QuestionContainer>
-      <Card sx={{ padding: '24px', width: '-webkit-fill-available', boxShadow: 2 }}>
+      <Card
+        style={{
+          padding: '24px',
+          width: '-webkit-fill-available',
+        }}
+      >
         <Typography whiteSpace={'pre-line'} marginBottom={2} data-cy={`question${id}`}>
           {parseContent(content, patientInfo)}
         </Typography>
