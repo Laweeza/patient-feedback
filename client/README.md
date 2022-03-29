@@ -28,7 +28,7 @@ With the server running, to run integration tests use:
 npm run test:system
 ```
 
-## Environment
+## Environment Variables
 
 | Variable           | Value    |
 | ------------------ | -------- |
