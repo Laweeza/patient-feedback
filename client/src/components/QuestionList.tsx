@@ -60,8 +60,8 @@ const QuestionList = ({ questions, handleSubmit }: Props) => {
           />
         </CSSTransition>
       </QuestionsContainer>
-      {position < questions.length - 1 ? (
-        <div style={{ display: 'inline-block' }}>
+      <div style={{ display: 'inline-block' }}>
+        {position !== 0 && (
           <ThemeProvider theme={theme}>
             <Button
               data-cy='previousQuestion'
@@ -73,31 +73,8 @@ const QuestionList = ({ questions, handleSubmit }: Props) => {
               Previous
             </Button>
           </ThemeProvider>
-          <ThemeProvider theme={theme}>
-            <Button
-              color='primary'
-              variant='contained'
-              data-cy='nextQuestion'
-              onClick={handleNext}
-              sx={{ margin: '10px', minWidth: '100px' }}
-            >
-              Next
-            </Button>
-          </ThemeProvider>
-        </div>
-      ) : (
-        <div style={{ display: 'inline-block' }}>
-          <ThemeProvider theme={theme}>
-            <Button
-              data-cy='previousQuestion'
-              onClick={handlePrevious}
-              color='primary'
-              variant='outlined'
-              sx={{ margin: '10px', minWidth: '100px' }}
-            >
-              Previous
-            </Button>
-          </ThemeProvider>
+        )}
+        {position === questions.length - 1 ? (
           <ThemeProvider theme={theme}>
             <Button
               data-cy='submitFeedback'
@@ -109,8 +86,20 @@ const QuestionList = ({ questions, handleSubmit }: Props) => {
               Submit
             </Button>
           </ThemeProvider>
-        </div>
-      )}
+        ) : (
+          <ThemeProvider theme={theme}>
+            <Button
+              color='primary'
+              variant='contained'
+              data-cy='nextQuestion'
+              onClick={handleNext}
+              sx={{ margin: '10px', minWidth: '100px' }}
+            >
+              Next
+            </Button>
+          </ThemeProvider>
+        )}
+      </div>
     </>
   );
 };
