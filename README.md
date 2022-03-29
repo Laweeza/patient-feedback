@@ -35,10 +35,10 @@ docker-compose up
 
 ## Technologies
 
-| Front End                        | Testing                          | Back End                            | Deployment                |
-| -------------------------------- | -------------------------------- | ----------------------------------- | ------------------------- |
-| [React](https://reactjs.org/)    | [Jest](https://jestjs.io/)       | [MySQL](https://www.mysql.com/)     | [Docker](www.docker.com/) |
-| [Recoil](https://recoiljs.org/)  | [Cypress](https://go.cypress.io) | [Sequelize](https://sequelize.org/) |                           |
-| [Axios](https://axios-http.com/) |                                  | [Express](https://expressjs.com/)   |                           |
-| [MUI](https://mui.com/)          |                                  |                                     |                           |
-| [Emotion](https://emotion.sh)    |                                  |                                     |                           |
+| Front End                        | Testing                            | Back End                            | Deployment                |
+| -------------------------------- | --------------------------------   | ----------------------------------- | ------------------------- |
+| [React](https://reactjs.org/)    | [RTL](https://testing-library.com/)| [MySQL](https://www.mysql.com/)     | [Docker](www.docker.com/) |
+| [Recoil](https://recoiljs.org/)  | [Cypress](https://go.cypress.io)   | [Sequelize](https://sequelize.org/) |                           |
+| [Axios](https://axios-http.com/) |                                    | [Express](https://expressjs.com/)   |                           |
+| [MUI](https://mui.com/)          |                                    |                                     |                           |
+| [Emotion](https://emotion.sh)    |                                    |                                     |                           |
