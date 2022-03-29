@@ -20,9 +20,10 @@ export type QuestionProps = {
   content: string;
   question_type: string;
   handleNext?: () => any;
+  handlePrevious?: () => any;
 };
 
-const Question = ({ id, content, question_type, handleNext }: QuestionProps) => {
+const Question = ({ id, content, question_type, handleNext, handlePrevious }: QuestionProps) => {
   const [rating, setRating] = useState(5);
   const [answer, setAnswer] = useState('');
   const [feedback, setFeedBack] = useState('');
@@ -66,12 +67,12 @@ const Question = ({ id, content, question_type, handleNext }: QuestionProps) => 
           onChange={(e) => setAnswer(e.target.value)}
           style={radioStyles}
         >
-          <FormControlLabel value='yes' control={<Radio />} label='Yes' labelPlacement='bottom' />
-          <FormControlLabel value='no' control={<Radio />} label='No' labelPlacement='bottom' />
+          <FormControlLabel value='yes' control={<Radio />} label='Yes' labelPlacement='end' />
+          <FormControlLabel value='no' control={<Radio />} label='No' labelPlacement='end' />
         </RadioGroup>
         {answer === 'no' ? (
           <Input
-            placeholder='What can we do to improve for the next appointment?'
+            placeholder='How could the visit have been better?'
             onChange={(e) => setFeedBack('No. ' + e.target.value)}
             fullWidth
           />
@@ -81,7 +82,7 @@ const Question = ({ id, content, question_type, handleNext }: QuestionProps) => 
   } else if (question_type === 'text') {
     response = (
       <TextField
-        placeholder='Input feedback here'
+        placeholder='Tell us how you feel.'
         data-cy={`questionFeedback${id}`}
         multiline
         fullWidth
