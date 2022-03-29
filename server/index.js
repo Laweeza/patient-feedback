@@ -64,7 +64,7 @@ app.get('/responses', async (req, res) => {
   }
 });
 
-//For resetting the demo
+//For resetting the demo curl -X "DELETE" http://localhost:3001/responses
 app.delete('/responses', async (req, res) => {
   try {
     await db.Response.destroy({ truncate: true, cascade: false });

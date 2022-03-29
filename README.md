@@ -2,17 +2,16 @@
 
 The purpose of this program is to collect patient feedback after their doctor appointments.
 
-[Installation](#installation) •
 [Getting Started](#getting-started) •
 [System Architecture](#system-architecture) •
 [Technologies](#technologies)
 
+## For Local Development
+
+- See `/server` [README](https://github.com/Laweeza/patient-feedback/tree/main/server) for instructions for web service.
+- See `/client` [README](https://github.com/Laweeza/patient-feedback/tree/main/client)
+
 ## Getting Started
-
-### For Local Development
-* See `/server` [README](https://github.com/Laweeza/patient-feedback/tree/main/server) for instructions for web service.
-* See `/client` [README](https://github.com/Laweeza/patient-feedback/tree/main/client)
-
 
 To start up the application, please run:
 

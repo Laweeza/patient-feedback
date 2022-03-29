@@ -21,7 +21,11 @@ services:
     build: ./server
     restart: always
     environment:
+      - MYSQL_DATABASE=patient_feedback
       - MYSQL_HOST=db
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=password
+      - PORT=3001
     ports:
       - '3001:3001'
     expose:
