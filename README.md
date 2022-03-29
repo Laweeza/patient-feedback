@@ -43,7 +43,8 @@ docker-compose up
 ![Feedback Layout 2](https://user-images.githubusercontent.com/56424589/160701560-953df5f7-8e3b-4e29-b975-2e68407af569.png)
 ![Feedback Layout 3](https://user-images.githubusercontent.com/56424589/160701628-89170afd-ba6e-43ca-9764-d1793eb42ae8.png)
 
-
+## Technical Challenges
+[Notion Journal](https://zesty-spur-a63.notion.site/Patient-Feedback-970e8904cf7645a3b313c75711f44893)
 
 
 ## Technologies
@@ -56,7 +57,6 @@ docker-compose up
 | [MUI](https://mui.com/)          |                                    |                                     |                           |
 | [Emotion](https://emotion.sh)    |                                    |                                     |                           |
 
-## Technical Challenges
-[Notion Journal](https://zesty-spur-a63.notion.site/Patient-Feedback-970e8904cf7645a3b313c75711f44893)
+
 
 
