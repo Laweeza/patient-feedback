@@ -16,6 +16,8 @@ npm start
 
 ## Environment
 
+* Default ENV variables have been provided in docker-compose for ease of testing. 
+
 | Variable       | Value                 |
 | -------------- | --------------------- |
 | MYSQL_DATABASE | your db name          |
