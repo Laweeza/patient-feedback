@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { Card, CardContent, Typography } from '@mui/material';
-import React from 'react';
 import { useRecoilValue } from 'recoil';
 import { patientInfoState, responseState } from '../store/atoms';
 import { parseContent } from '../utils';
@@ -12,12 +11,30 @@ const Summary = () => {
     <div>
       <CardContent>
         <SummaryContainer>
-          <Typography variant='h5' data-cy='feedbackSummaryHeading' sx={{ alignSelf: 'center' }}>
-            Thanks again! Here’s what we heard:
-          </Typography>
+          {responses.length ? (
+            <Typography
+              style={{ color: '#00aced' }}
+              fontWeight={300}
+              variant='h5'
+              data-cy='feedbackSummaryHeading'
+              sx={{ alignSelf: 'center' }}
+            >
+              Thanks again! Here’s what we heard:
+            </Typography>
+          ) : (
+            <Typography
+              style={{ color: '#00aced' }}
+              fontWeight={300}
+              variant='h5'
+              data-cy='feedbackSummaryHeading'
+              sx={{ alignSelf: 'center' }}
+            >
+              We have already recorded your responses. Thank you!
+            </Typography>
+          )}
           {responses.map((response) => (
-            <Card sx={{ minWidth: 275, padding: '20px' }}>
-              <Typography>
+            <Card sx={{ minWidth: 275, padding: '20px' }} key={`${response.patient_id}`}>
+              <Typography whiteSpace={'pre-line'}>
                 {response.question_id}. {parseContent(response.question?.content, patientInfo)}
               </Typography>
               <Typography color='text.secondary'>{response.content || response.rating}</Typography>

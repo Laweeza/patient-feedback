@@ -23,7 +23,16 @@ const QuestionList = ({ questions, handleSubmit }: Props) => {
 
   const handleNext = () => {
     if (position + 1 < questions.length) {
-      setPosition(position + 1);
+      setPosition((position) => position + 1);
+      setTransitionState((transitionState) => !transitionState);
+    } else {
+      return;
+    }
+  };
+
+  const handlePrevious = () => {
+    if (position <= questions.length && position > 0) {
+      setPosition((position) => position - 1);
       setTransitionState((transitionState) => !transitionState);
     } else {
       return;
@@ -33,8 +42,8 @@ const QuestionList = ({ questions, handleSubmit }: Props) => {
   return (
     <>
       <QuestionsContainer>
-        <Typography>
-          Question {position + 1} of {questions.length}
+        <Typography alignSelf={'center'}>
+          {position + 1} of {questions.length}
         </Typography>
         <CSSTransition
           in={transitionState}
@@ -44,20 +53,53 @@ const QuestionList = ({ questions, handleSubmit }: Props) => {
           }}
           classNames='fade'
         >
-          <Question {...questions[position]} handleNext={handleNext} />
+          <Question
+            {...questions[position]}
+            handleNext={handleNext}
+            handlePrevious={handlePrevious}
+          />
         </CSSTransition>
       </QuestionsContainer>
-      {position < questions.length - 1 ? (
-        <ThemeProvider theme={theme}>
-          <Button color='primary' variant='contained' data-cy='nextQuestion' onClick={handleNext}>
-            Next
-          </Button>
-        </ThemeProvider>
-      ) : (
-        <Button data-cy='submitFeedback' onClick={handleSubmit} color='primary' variant='contained'>
-          Submit
-        </Button>
-      )}
+      <div style={{ display: 'inline-block' }}>
+        {position !== 0 && (
+          <ThemeProvider theme={theme}>
+            <Button
+              data-cy='previousQuestion'
+              onClick={handlePrevious}
+              color='primary'
+              variant='outlined'
+              sx={{ margin: '10px', minWidth: '100px' }}
+            >
+              Previous
+            </Button>
+          </ThemeProvider>
+        )}
+        {position === questions.length - 1 ? (
+          <ThemeProvider theme={theme}>
+            <Button
+              data-cy='submitFeedback'
+              onClick={handleSubmit}
+              color='primary'
+              variant='contained'
+              sx={{ margin: '10px', minWidth: '100px' }}
+            >
+              Submit
+            </Button>
+          </ThemeProvider>
+        ) : (
+          <ThemeProvider theme={theme}>
+            <Button
+              color='primary'
+              variant='contained'
+              data-cy='nextQuestion'
+              onClick={handleNext}
+              sx={{ margin: '10px', minWidth: '100px' }}
+            >
+              Next
+            </Button>
+          </ThemeProvider>
+        )}
+      </div>
     </>
   );
 };
@@ -75,6 +117,7 @@ const theme = createTheme({
   palette: {
     primary: {
       main: '#00aced',
+      contrastText: '#fff',
     },
   },
 });

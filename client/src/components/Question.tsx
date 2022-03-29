@@ -20,9 +20,10 @@ export type QuestionProps = {
   content: string;
   question_type: string;
   handleNext?: () => any;
+  handlePrevious?: () => any;
 };
 
-const Question = ({ id, content, question_type, handleNext }: QuestionProps) => {
+const Question = ({ id, content, question_type, handleNext, handlePrevious }: QuestionProps) => {
   const [rating, setRating] = useState(5);
   const [answer, setAnswer] = useState('');
   const [feedback, setFeedBack] = useState('');
@@ -47,8 +48,6 @@ const Question = ({ id, content, question_type, handleNext }: QuestionProps) => 
   if (question_type === 'rating') {
     response = (
       <PrettoSlider
-        valueLabelDisplay='auto'
-        aria-label='pretto slider'
         data-cy={`questionRating${id}`}
         defaultValue={rating}
         min={1}
@@ -66,12 +65,12 @@ const Question = ({ id, content, question_type, handleNext }: QuestionProps) => 
           onChange={(e) => setAnswer(e.target.value)}
           style={radioStyles}
         >
-          <FormControlLabel value='yes' control={<Radio />} label='Yes' labelPlacement='bottom' />
-          <FormControlLabel value='no' control={<Radio />} label='No' labelPlacement='bottom' />
+          <FormControlLabel value='yes' control={<Radio />} label='Yes' labelPlacement='end' />
+          <FormControlLabel value='no' control={<Radio />} label='No' labelPlacement='end' />
         </RadioGroup>
         {answer === 'no' ? (
           <Input
-            placeholder='What can we do to improve for the next appointment?'
+            placeholder='How could this visit have been better?'
             onChange={(e) => setFeedBack('No. ' + e.target.value)}
             fullWidth
           />
@@ -81,11 +80,10 @@ const Question = ({ id, content, question_type, handleNext }: QuestionProps) => 
   } else if (question_type === 'text') {
     response = (
       <TextField
-        placeholder='Input feedback here'
+        placeholder='Tell us how you feel.'
         data-cy={`questionFeedback${id}`}
         multiline
         fullWidth
-        rows={2}
         maxRows={4}
         onChange={(e) => setFeedBack(e.target.value)}
       />
@@ -95,7 +93,9 @@ const Question = ({ id, content, question_type, handleNext }: QuestionProps) => 
   return (
     <QuestionContainer>
       <Card sx={{ padding: '24px', width: '-webkit-fill-available', boxShadow: 2 }}>
-        <Typography data-cy={`question${id}`}>{parseContent(content, patientInfo)}</Typography>
+        <Typography whiteSpace={'pre-line'} marginBottom={2} data-cy={`question${id}`}>
+          {parseContent(content, patientInfo)}
+        </Typography>
         {response}
       </Card>
     </QuestionContainer>
