@@ -14,7 +14,7 @@ To use the dev server, use:
 npm start
 ```
 
-## Environment
+## Environment Variables
 
 
 | Variable       | Value                 |
