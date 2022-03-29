@@ -50,6 +50,7 @@ const Question = ({ id, content, question_type, handleNext, handlePrevious }: Qu
       <PrettoSlider
         valueLabelDisplay='auto'
         aria-label='pretto slider'
+        key={`slider-${rating}`}
         data-cy={`questionRating${id}`}
         defaultValue={rating}
         min={1}
@@ -86,7 +87,6 @@ const Question = ({ id, content, question_type, handleNext, handlePrevious }: Qu
         data-cy={`questionFeedback${id}`}
         multiline
         fullWidth
-        rows={2}
         maxRows={4}
         onChange={(e) => setFeedBack(e.target.value)}
       />
