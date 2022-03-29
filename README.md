@@ -4,7 +4,9 @@ The purpose of this program is to collect patient feedback after their doctor ap
 
 [Getting Started](#getting-started) •
 [System Architecture](#system-architecture) •
-[Technologies](#technologies)
+[Wireframes](#wireframes) •
+[Technologies](#technologies) •
+[Technical Challenges](#technical-challenges)
 
 ## For Local Development
 
@@ -32,6 +34,11 @@ docker-compose up
 |     GET      | /responses | Returns patient responses to questions            |  200   |
 |     POST     | /submit    | Submits patient feedback and associated questions |  201   |
 
+## Wireframes
+
+![Feedback Wireframe](https://user-images.githubusercontent.com/56424589/160701225-26430b1a-f35d-4250-bf1d-7b6b083d1dfc.png)
+[Figma Link](https://www.figma.com/file/Ut3mpv60IjkyeKnpqN0g9O/Feedback-Wireframe?node-id=0%3A1)
+
 ## Technologies
 
 | Front End                        | Testing                            | Back End                            | Deployment                |
@@ -41,3 +48,8 @@ docker-compose up
 | [Axios](https://axios-http.com/) |                                    | [Express](https://expressjs.com/)   |                           |
 | [MUI](https://mui.com/)          |                                    |                                     |                           |
 | [Emotion](https://emotion.sh)    |                                    |                                     |                           |
+
+## Technical Challenges
+[Notion Journal](https://zesty-spur-a63.notion.site/Patient-Feedback-970e8904cf7645a3b313c75711f44893)
+
+
