@@ -16,7 +16,6 @@ npm start
 
 ## Environment
 
-* ENV variables included in docker-compose for testing purposes. 
 
 | Variable       | Value                 |
 | -------------- | --------------------- |
