@@ -8,6 +8,6 @@ const sequelize = new Sequelize(
     dialect: 'mysql',
   },
 );
-const initModels = require('./models/init-models');
+const initDb = require('./models/init-models');
 
-module.exports = initModels(sequelize);
+module.exports = initDb(sequelize);
