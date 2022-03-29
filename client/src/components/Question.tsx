@@ -70,7 +70,7 @@ const Question = ({ id, content, question_type, handleNext, handlePrevious }: Qu
         </RadioGroup>
         {answer === 'no' ? (
           <Input
-            placeholder='How could the visit have been better?'
+            placeholder='How could this visit have been better?'
             onChange={(e) => setFeedBack('No. ' + e.target.value)}
             fullWidth
           />
@@ -93,7 +93,9 @@ const Question = ({ id, content, question_type, handleNext, handlePrevious }: Qu
   return (
     <QuestionContainer>
       <Card sx={{ padding: '24px', width: '-webkit-fill-available', boxShadow: 2 }}>
-        <Typography data-cy={`question${id}`}>{parseContent(content, patientInfo)}</Typography>
+        <Typography whiteSpace={'pre-line'} marginBottom={2} data-cy={`question${id}`}>
+          {parseContent(content, patientInfo)}
+        </Typography>
         {response}
       </Card>
     </QuestionContainer>

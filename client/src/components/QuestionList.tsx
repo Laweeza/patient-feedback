@@ -42,8 +42,8 @@ const QuestionList = ({ questions, handleSubmit }: Props) => {
   return (
     <>
       <QuestionsContainer>
-        <Typography>
-          Question {position + 1} of {questions.length}
+        <Typography alignSelf={'center'}>
+          {position + 1} of {questions.length}
         </Typography>
         <CSSTransition
           in={transitionState}

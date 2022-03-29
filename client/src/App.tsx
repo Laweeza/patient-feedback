@@ -85,7 +85,12 @@ const App: React.FC = () => {
             <Summary />
           ) : (
             <>
-              <Typography variant='h5' data-cy='feedbackHeading'>
+              <Typography
+                style={{ color: '#00aced' }}
+                variant='h5'
+                fontWeight={300}
+                data-cy='feedbackHeading'
+              >
                 How was your appointment?
               </Typography>
               <QuestionList questions={questions} handleSubmit={handleSubmit} />
@@ -105,5 +110,5 @@ const AppContainer = styled.div({
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
-  backgroundColor: '#f2f2f4',
+  backgroundColor: '#fcfcfc',
 });

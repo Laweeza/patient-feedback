@@ -11,7 +11,13 @@ const Summary = () => {
     <div>
       <CardContent>
         <SummaryContainer>
-          <Typography variant='h5' data-cy='feedbackSummaryHeading' sx={{ alignSelf: 'center' }}>
+          <Typography
+            style={{ color: '#00aced' }}
+            fontWeight={300}
+            variant='h5'
+            data-cy='feedbackSummaryHeading'
+            sx={{ alignSelf: 'center' }}
+          >
             Thanks again! Here’s what we heard:
           </Typography>
           {responses.map((response) => (
