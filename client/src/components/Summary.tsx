@@ -15,9 +15,9 @@ const Summary = () => {
             Thanks again! Here’s what we heard:
           </Typography>
           {responses.map((response) => (
-            <Card sx={{ minWidth: 275, padding: '20px' }} key={`${response.question_id}`}>
+            <Card sx={{ minWidth: 275, padding: '20px' }} key={`${response.patient_id}`}>
               <Typography>
-                {response.question_id}.{parseContent(response.question?.content, patientInfo)}
+                {response.question_id}. {parseContent(response.question?.content, patientInfo)}
               </Typography>
               <Typography color='text.secondary'>{response.content || response.rating}</Typography>
             </Card>

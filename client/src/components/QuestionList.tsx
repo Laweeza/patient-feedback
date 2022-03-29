@@ -23,7 +23,6 @@ const QuestionList = ({ questions, handleSubmit }: Props) => {
 
   const handleNext = () => {
     if (position + 1 < questions.length) {
-      console.log('foward position', position);
       setPosition((position) => position + 1);
       setTransitionState((transitionState) => !transitionState);
     } else {
@@ -33,7 +32,6 @@ const QuestionList = ({ questions, handleSubmit }: Props) => {
 
   const handlePrevious = () => {
     if (position <= questions.length && position > 0) {
-      console.log('back position', position);
       setPosition((position) => position - 1);
       setTransitionState((transitionState) => !transitionState);
     } else {
@@ -66,7 +64,7 @@ const QuestionList = ({ questions, handleSubmit }: Props) => {
         <div style={{ display: 'inline-block' }}>
           <ThemeProvider theme={theme}>
             <Button
-              data-cy='submitFeedback'
+              data-cy='previousQuestion'
               onClick={handlePrevious}
               color='primary'
               variant='outlined'
@@ -91,7 +89,7 @@ const QuestionList = ({ questions, handleSubmit }: Props) => {
         <div style={{ display: 'inline-block' }}>
           <ThemeProvider theme={theme}>
             <Button
-              data-cy='submitFeedback'
+              data-cy='previousQuestion'
               onClick={handlePrevious}
               color='primary'
               variant='outlined'

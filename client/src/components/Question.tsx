@@ -47,9 +47,7 @@ const Question = ({ id, content, question_type, handleNext, handlePrevious }: Qu
 
   if (question_type === 'rating') {
     response = (
-      <PrettoSlider
-        valueLabelDisplay='auto'
-        aria-label='pretto slider'
+      <Slider
         key={`slider-${rating}`}
         data-cy={`questionRating${id}`}
         defaultValue={rating}
