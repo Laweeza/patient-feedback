@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import styled from '@emotion/styled';
 import { CircularProgress, Typography } from '@mui/material';
-import axios from 'axios';
+import axios, { AxiosError, AxiosResponse } from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import { QuestionProps } from './components/Question';
@@ -70,7 +70,11 @@ const App: React.FC = () => {
 
       setResponses(responseData);
       setIsSubmitted(true);
-    } catch (err) {
+    } catch (err: any) {
+      // alert(err?.response.data?.message);
+      setResponses([]);
+      setIsSubmitted(true);
+
       console.error(err);
     }
   };

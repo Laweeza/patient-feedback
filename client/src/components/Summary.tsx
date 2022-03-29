@@ -11,15 +11,27 @@ const Summary = () => {
     <div>
       <CardContent>
         <SummaryContainer>
-          <Typography
-            style={{ color: '#00aced' }}
-            fontWeight={300}
-            variant='h5'
-            data-cy='feedbackSummaryHeading'
-            sx={{ alignSelf: 'center' }}
-          >
-            Thanks again! Here’s what we heard:
-          </Typography>
+          {responses.length ? (
+            <Typography
+              style={{ color: '#00aced' }}
+              fontWeight={300}
+              variant='h5'
+              data-cy='feedbackSummaryHeading'
+              sx={{ alignSelf: 'center' }}
+            >
+              Thanks again! Here’s what we heard:
+            </Typography>
+          ) : (
+            <Typography
+              style={{ color: '#00aced' }}
+              fontWeight={300}
+              variant='h5'
+              data-cy='feedbackSummaryHeading'
+              sx={{ alignSelf: 'center' }}
+            >
+              We have already recorded your responses. Thank you!
+            </Typography>
+          )}
           {responses.map((response) => (
             <Card sx={{ minWidth: 275, padding: '20px' }} key={`${response.patient_id}`}>
               <Typography whiteSpace={'pre-line'}>
