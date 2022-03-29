@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import styled from '@emotion/styled';
 import { CircularProgress, Typography } from '@mui/material';
-import axios, { AxiosError, AxiosResponse } from 'axios';
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import { QuestionProps } from './components/Question';
