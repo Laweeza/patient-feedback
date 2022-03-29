@@ -44,7 +44,6 @@ app.post('/submit', async (req, res) => {
     });
     res.status(201).send(responses);
   } catch (err) {
-    console.log(err);
     res.status(500).send(err);
   }
 });

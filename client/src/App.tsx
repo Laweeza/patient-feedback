@@ -47,7 +47,6 @@ const App: React.FC = () => {
       const { data: questionsData } = await axios.get(
         `${process.env.REACT_APP_BASE_URL}/questions`,
       );
-      console.log(questionsData);
       setQuestions(questionsData);
 
       let temp = [
