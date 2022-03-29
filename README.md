@@ -37,7 +37,7 @@ docker-compose up
 
 ## Wireframes
 
-[Figma Link](https://www.figma.com/file/Ut3mpv60IjkyeKnpqN0g9O/Feedback-Wireframe?node-id=0%3A1)
+[Initial Wireframes](https://www.figma.com/file/Ut3mpv60IjkyeKnpqN0g9O/Feedback-Wireframe?node-id=0%3A1)
 
 ![Feedback Layout 1](https://user-images.githubusercontent.com/56424589/160701501-064d7aa5-7c6e-4ea5-8634-40428d74e2c0.png)
 ![Feedback Layout 2](https://user-images.githubusercontent.com/56424589/160701560-953df5f7-8e3b-4e29-b975-2e68407af569.png)
