@@ -44,7 +44,7 @@ docker-compose up
 ![Feedback Layout 3](https://user-images.githubusercontent.com/56424589/160701628-89170afd-ba6e-43ca-9764-d1793eb42ae8.png)
 
 ## Technical Challenges
-[Notion Journal](https://zesty-spur-a63.notion.site/Patient-Feedback-970e8904cf7645a3b313c75711f44893)
+[Notion Journal Entry](https://zesty-spur-a63.notion.site/Patient-Feedback-970e8904cf7645a3b313c75711f44893)
 
 
 ## Technologies
