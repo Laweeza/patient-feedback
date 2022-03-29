@@ -29,10 +29,18 @@ app.post('/submit', async (req, res) => {
   const patient_id = body[0].patient_id;
 
   try {
+    //Check to see if patient has already submitted responses
+    const submitted = await db.Response.findAll({ where: { patient_id } });
+    if (submitted.length) {
+      res.status(409).send({ message: 'You already submitted your responses.' });
+      return;
+    }
+
     await db.Response.bulkCreate(body);
     const responses = await db.Response.findAll({
       where: { patient_id },
       include: { model: db.Question, as: 'question' },
+      order: [['question_id', 'ASC']],
     });
     res.status(201).send(responses);
   } catch (err) {
@@ -49,10 +57,21 @@ app.get('/responses', async (req, res) => {
       where: {
         patient_id,
       },
+      order: [['question_id', 'ASC']],
     });
     res.status(200).send(data);
   } catch (err) {
     res.status(500).send(err);
+  }
+});
+
+//For resetting the demo
+app.delete('/responses', async (req, res) => {
+  try {
+    await db.Response.destroy({ truncate: true, cascade: false });
+    res.send('Deleted responses');
+  } catch (err) {
+    res.send(err);
   }
 });
 
@@ -67,8 +86,8 @@ app.listen(process.env.PORT, async () => {
     });
     await db.Question.bulkCreate([
       {
-        content:
-          'Hi [Patient], on a scale of 1-10, would you recommend Dr. [Doctor] to a friend or family member? 1 = Would not recommend, 10 = Would strongly recommend',
+        content: `Hi [Patient], on a scale of 1-10, would you recommend Dr. [Doctor] to a friend or family member?
+          1 = Would not recommend, 10 = Would strongly recommend`,
         question_type: 'rating',
       },
       {
